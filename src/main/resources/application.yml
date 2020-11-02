@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: AaAa123!
+    url: jdbc:mysql://localhost:3306/train?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.mislab.train
+  configuration:
+    map-underscore-to-camel-case: true
+
