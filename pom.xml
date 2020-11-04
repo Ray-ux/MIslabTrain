@@ -45,6 +45,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.18</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -65,8 +66,39 @@
         </dependency>
     </dependencies>
 
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>2.22.1</version>-->
+<!--                <configuration>-->
+<!--                    <skipTests>true</skipTests>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
     <build>
         <plugins>
+<!--            <plugin>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>mysql</groupId>-->
+<!--                        <artifactId>mysql-connector-java</artifactId>-->
+<!--                        <version>8.0.18</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--                &lt;!&ndash; 指定文件所在位置&ndash;&gt;-->
+<!--                <configuration>-->
+<!--                    <configurationFile>${project.basedir}/src/main/resources/generatorConfig.xml</configurationFile>-->
+<!--                    <verbose>true</verbose>-->
+<!--                    <overwrite>true</overwrite>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -80,6 +112,26 @@
                 </configuration>
             </plugin>
         </plugins>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.yml</include>-->
+<!--                    <include>**/*.html</include>-->
+<!--                    <include>**/*.js</include>-->
+<!--                </includes>-->
+<!--                &lt;!&ndash; 这里是false，用true会报 数据库连接 错误 &ndash;&gt;-->
+<!--&lt;!&ndash;                <filtering>false</filtering>&ndash;&gt;-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>src/main/java</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.xml</include>-->
+<!--                </includes>-->
+<!--                <filtering>false</filtering>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
+
 
 </project>
