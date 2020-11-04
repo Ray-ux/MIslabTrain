@@ -9,4 +9,3 @@ mybatis:
   type-aliases-package: com.mislab.train
   configuration:
     map-underscore-to-camel-case: true
-

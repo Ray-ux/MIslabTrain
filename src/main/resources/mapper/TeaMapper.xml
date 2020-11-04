@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mislab.train.mapper.TeaMapper">
+    <insert id="insertOneTea" useGeneratedKeys="true" keyColumn="tea_id" keyProperty="teaId">
+        insert into train.teacher(tea_acount,password) values (#{teaAcount},#{password});
+    </insert>
+    <select id="login" resultType="com.mislab.train.teacher.entity.Teacher">
+        select t.tea_id,t.tea_acount,t.password from train.teacher as t where tea_acount=#{teaAcount} and password=#{password};
+    </select>
+
+    <select id="selectByAcount" resultType="com.mislab.train.teacher.entity.Teacher">
+                select t.tea_id,t.tea_acount,t.password from train.teacher as t where tea_acount=#{teaAcount};
+    </select>
+
+</mapper>

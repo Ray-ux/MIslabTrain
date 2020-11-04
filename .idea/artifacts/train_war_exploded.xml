@@ -14,6 +14,7 @@
           <element id="module-output" name="train" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: cn.hutool:hutool-all:5.4.7" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.3.5.RELEASE" />

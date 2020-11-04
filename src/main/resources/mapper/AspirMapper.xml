@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mislab.train.mapper.AspirMapper">
+    <insert id="insertAspir" parameterType="com.mislab.train.teacher.entity.Aspiration" useGeneratedKeys="true" keyProperty="aspirId" keyColumn="aspir_id">
+        insert into train.aspiration(aspir_name,tea_id,create_time) values (#{aspirName},#{teaId},#{createTime});
+    </insert>
+
+    <delete id="deleteByAspirId">
+        delete from train.aspiration where aspir_id=#{aspirId};
+    </delete>
+
+    <select id="selectByTeaId" resultType="com.mislab.train.teacher.entity.Aspiration">
+
+        select a.aspir_id,a.aspir_name,a.aspir_count,a.create_time,a.tea_id from train.aspiration as a where tea_id=#{teaId};
+
+    </select>
+    <select id="selectByAspirId" resultType="com.mislab.train.teacher.entity.Aspiration">
+        select * from train.aspiration where aspir_id=#{aspirId};
+    </select>
+</mapper>
