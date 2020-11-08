@@ -13,10 +13,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfigure implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
-        registry.addInterceptor(new TeaLoginInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/teacher/**");
+//
+//        registry.addInterceptor(new TeaLoginInterceptor())
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/teacher/**");
 
     }
 

@@ -1,8 +1,11 @@
 package com.mislab.train.teacher.controller;
+import cn.hutool.json.JSON;
+import cn.hutool.json.JSONUtil;
 import com.mislab.train.teacher.common.Result;
 import com.mislab.train.teacher.entity.Aspiration;
 import com.mislab.train.teacher.entity.Work;
 import com.mislab.train.teacher.service.AspirService;
+import com.mislab.train.teacher.service.Impl.WebSocket;
 import com.mislab.train.teacher.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +27,9 @@ public class WorkController {
     @Autowired
     private AspirService aspirService;
 
+    @Autowired
+    private WebSocket webSocket;
+
     @GetMapping("/getAll")
     public Map<String, Object> addWork(Integer aspirId, HttpSession session) {
         Map<String, Object> modelMap = new HashMap<>();
@@ -44,6 +50,11 @@ public class WorkController {
             return Result.fail("输入信息有误!!");
         }
         workService.addWork(work);
+//        发送websocket消息
+        JSON json = JSONUtil.parse(work);
+
+        webSocket.sendMessage(json.toString());
+
         return Result.success();
     }
 
