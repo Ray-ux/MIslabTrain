@@ -175,52 +175,62 @@ public class SworkExample {
             return (Criteria) this;
         }
 
-        public Criteria andStuIdEqualTo(Integer value) {
+        public Criteria andStuIdEqualTo(String value) {
             addCriterion("stu_id =", value, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdNotEqualTo(Integer value) {
+        public Criteria andStuIdNotEqualTo(String value) {
             addCriterion("stu_id <>", value, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdGreaterThan(Integer value) {
+        public Criteria andStuIdGreaterThan(String value) {
             addCriterion("stu_id >", value, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andStuIdGreaterThanOrEqualTo(String value) {
             addCriterion("stu_id >=", value, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdLessThan(Integer value) {
+        public Criteria andStuIdLessThan(String value) {
             addCriterion("stu_id <", value, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdLessThanOrEqualTo(Integer value) {
+        public Criteria andStuIdLessThanOrEqualTo(String value) {
             addCriterion("stu_id <=", value, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdIn(List<Integer> values) {
+        public Criteria andStuIdLike(String value) {
+            addCriterion("stu_id like", value, "stuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStuIdNotLike(String value) {
+            addCriterion("stu_id not like", value, "stuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStuIdIn(List<String> values) {
             addCriterion("stu_id in", values, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdNotIn(List<Integer> values) {
+        public Criteria andStuIdNotIn(List<String> values) {
             addCriterion("stu_id not in", values, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdBetween(Integer value1, Integer value2) {
+        public Criteria andStuIdBetween(String value1, String value2) {
             addCriterion("stu_id between", value1, value2, "stuId");
             return (Criteria) this;
         }
 
-        public Criteria andStuIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andStuIdNotBetween(String value1, String value2) {
             addCriterion("stu_id not between", value1, value2, "stuId");
             return (Criteria) this;
         }
@@ -282,6 +292,66 @@ public class SworkExample {
 
         public Criteria andWorkIdNotBetween(Integer value1, Integer value2) {
             addCriterion("work_id not between", value1, value2, "workId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdIsNull() {
+            addCriterion("aspir_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdIsNotNull() {
+            addCriterion("aspir_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdEqualTo(Integer value) {
+            addCriterion("aspir_id =", value, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdNotEqualTo(Integer value) {
+            addCriterion("aspir_id <>", value, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdGreaterThan(Integer value) {
+            addCriterion("aspir_id >", value, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("aspir_id >=", value, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdLessThan(Integer value) {
+            addCriterion("aspir_id <", value, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdLessThanOrEqualTo(Integer value) {
+            addCriterion("aspir_id <=", value, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdIn(List<Integer> values) {
+            addCriterion("aspir_id in", values, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdNotIn(List<Integer> values) {
+            addCriterion("aspir_id not in", values, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdBetween(Integer value1, Integer value2) {
+            addCriterion("aspir_id between", value1, value2, "aspirId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAspirIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("aspir_id not between", value1, value2, "aspirId");
             return (Criteria) this;
         }
 

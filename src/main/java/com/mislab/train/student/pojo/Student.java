@@ -1,7 +1,7 @@
 package com.mislab.train.student.pojo;
 
 public class Student {
-    private Integer stuId;
+    private String stuId;
 
     private String stuName;
 
@@ -11,18 +11,16 @@ public class Student {
 
     private String major;
 
-    private Integer aspirId;
-
     private String phone;
 
     private String password;
 
-    public Integer getStuId() {
+    public String getStuId() {
         return stuId;
     }
 
-    public void setStuId(Integer stuId) {
-        this.stuId = stuId;
+    public void setStuId(String stuId) {
+        this.stuId = stuId == null ? null : stuId.trim();
     }
 
     public String getStuName() {
@@ -55,14 +53,6 @@ public class Student {
 
     public void setMajor(String major) {
         this.major = major == null ? null : major.trim();
-    }
-
-    public Integer getAspirId() {
-        return aspirId;
-    }
-
-    public void setAspirId(Integer aspirId) {
-        this.aspirId = aspirId;
     }
 
     public String getPhone() {

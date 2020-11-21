@@ -1,6 +1,8 @@
 package com.mislab.train.teacher.controller;
 import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
+import com.mislab.train.VO.StuWorkVO;
+import com.mislab.train.student.service.SworkService;
 import com.mislab.train.teacher.common.Result;
 import com.mislab.train.teacher.entity.Aspiration;
 import com.mislab.train.teacher.entity.Work;
@@ -26,6 +28,9 @@ public class WorkController {
     private WorkService workService;
     @Autowired
     private AspirService aspirService;
+
+    @Autowired
+    private SworkService sworkService;
 
     @Autowired
     private WebSocket webSocket;
@@ -83,4 +88,13 @@ public class WorkController {
         workService.removeWork(workId);
         return Result.success();
     }
+
+    @GetMapping("check")
+    public Map<String, Object> check(@RequestParam("workId")Integer workId) {
+        Map<String, Object> modelMap = new HashMap<>();
+        List<StuWorkVO> result = sworkService.queryByWorkId(workId);
+        modelMap.put("subWork", result);
+        return Result.success(modelMap);
+    }
+
 }

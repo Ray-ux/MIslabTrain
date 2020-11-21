@@ -1,10 +1,10 @@
 package com.mislab.train.mapper;
 
+import com.mislab.train.VO.StuWorkVO;
 import com.mislab.train.student.pojo.Swork;
 import com.mislab.train.student.pojo.SworkExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SworkMapper {
     long countByExample(SworkExample example);
@@ -28,4 +28,8 @@ public interface SworkMapper {
     int updateByPrimaryKeySelective(Swork record);
 
     int updateByPrimaryKey(Swork record);
+
+    int updateSwork(int score, Integer sworkId);
+
+    List<StuWorkVO> selectByWorkId(Integer workId);
 }

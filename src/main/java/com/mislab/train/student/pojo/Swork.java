@@ -5,9 +5,11 @@ import java.util.Date;
 public class Swork {
     private Integer sworkId;
 
-    private Integer stuId;
+    private String stuId;
 
     private Integer workId;
+
+    private Integer aspirId;
 
     private String src;
 
@@ -17,6 +19,18 @@ public class Swork {
 
     private Integer status;
 
+    public Swork(Integer sworkId, String stuId, Integer workId, Integer aspirId, String src, Date subday) {
+        this.sworkId = sworkId;
+        this.stuId = stuId;
+        this.workId = workId;
+        this.aspirId = aspirId;
+        this.src = src;
+        this.subday = subday;
+    }
+
+    public Swork() {
+    }
+
     public Integer getSworkId() {
         return sworkId;
     }
@@ -25,12 +39,12 @@ public class Swork {
         this.sworkId = sworkId;
     }
 
-    public Integer getStuId() {
+    public String getStuId() {
         return stuId;
     }
 
-    public void setStuId(Integer stuId) {
-        this.stuId = stuId;
+    public void setStuId(String stuId) {
+        this.stuId = stuId == null ? null : stuId.trim();
     }
 
     public Integer getWorkId() {
@@ -39,6 +53,14 @@ public class Swork {
 
     public void setWorkId(Integer workId) {
         this.workId = workId;
+    }
+
+    public Integer getAspirId() {
+        return aspirId;
+    }
+
+    public void setAspirId(Integer aspirId) {
+        this.aspirId = aspirId;
     }
 
     public String getSrc() {

@@ -20,7 +20,6 @@ public class AspirServiceImpl implements AspirService {
 
     @Override
     public List<Aspiration> queryByTeaId(Integer teaId) {
-
         return aspirMapper.selectByTeaId(teaId);
     }
 
@@ -38,6 +37,11 @@ public class AspirServiceImpl implements AspirService {
     @Override
     public Aspiration queryByAspirId(Integer aspirId) {
         return aspirMapper.selectByAspirId(aspirId);
+    }
+
+    @Override
+    public List<Aspiration> queryAll() {
+        return aspirMapper.selectAll();
     }
 
 }

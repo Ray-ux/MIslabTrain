@@ -39,4 +39,11 @@ public interface AspirMapper {
      */
     Aspiration selectByAspirId(Integer aspirId);
 
+
+    /**
+     * 返回所有课程
+     * @return
+     */
+    List<Aspiration> selectAll();
+
 }

@@ -19,7 +19,7 @@ public class Result {
      * @return
      */
     public static Map<String,Object> success(Object data, String Msg) {
-        map.put("code", 200);
+        map.put("code", 1);
         map.put("Msg", Msg);
         map.put("data", data);
         return map;

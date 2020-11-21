@@ -1,5 +1,6 @@
 package com.mislab.train.student.service;
 
+import com.mislab.train.student.pojo.StuInfo;
 import com.mislab.train.student.pojo.Student;
 
 /**
@@ -7,5 +8,7 @@ import com.mislab.train.student.pojo.Student;
  * @Date 2020/11/3 17:13
  */
 public interface StudentService {
-    void addStudent(Student student);
+    int addStudent(Student student);
+    StuInfo queryById(String id);
+    StuInfo loginCheck(String stuId,String pwd);
 }

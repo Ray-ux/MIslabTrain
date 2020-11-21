@@ -37,5 +37,12 @@ public interface AspirService {
      * @return
      */
     Aspiration queryByAspirId(Integer aspirId);
+
+
+    /**
+     * 获取所有课程
+     * @return
+     */
+    List<Aspiration> queryAll();
 }
 
