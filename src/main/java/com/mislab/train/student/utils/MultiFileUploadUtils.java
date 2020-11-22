@@ -65,7 +65,7 @@ public class MultiFileUploadUtils {
     public static void readySpaceFile(MultiFileInfo fileInfo,File tempFile) throws IOException {
         RandomAccessFile targetSpaceFile = new RandomAccessFile(tempFile,"rws");//语义
         targetSpaceFile.setLength(fileInfo.getSize());
-        System.out.println("创建文件:"+fileInfo.getSize());
+        System.out.println("创建文件:"+fileInfo.getName());
         targetSpaceFile.close();
     }
 
@@ -115,7 +115,7 @@ public class MultiFileUploadUtils {
         //获取分片总数
         Integer allChunk = fileInfo.getChunks();
         //获取文件总大小
-        Long allSize = fileInfo.getSize();
+        Long allSize = fileInfo.getAllSize();
         if(currentChunk<(allChunk-1)){
             long stater = chunkSize*currentChunk;
             return stater;

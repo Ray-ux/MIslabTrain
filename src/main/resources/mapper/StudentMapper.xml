@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mislab.train.mapper.StudentMapper">
-  <resultMap id="BaseResultMap" type="com.mislab.train.student.pojo.Student">
-    <id column="stu_id" jdbcType="INTEGER" property="stuId" />
+  <resultMap id="BaseResultMap" type="com.mislab.train.student.pojo.StuInfo">
+    <id column="stu_id" jdbcType="CHAR" property="stuId" />
     <result column="stu_name" jdbcType="VARCHAR" property="stuName" />
     <result column="stu_sex" jdbcType="CHAR" property="stuSex" />
     <result column="stu_grade" jdbcType="VARCHAR" property="stuGrade" />
     <result column="major" jdbcType="VARCHAR" property="major" />
-    <result column="aspir_id" jdbcType="INTEGER" property="aspirId" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    stu_id, stu_name, stu_sex, stu_grade, major, aspir_id, phone, password
+    stu_id, stu_name, stu_sex, stu_grade, major, phone, password
   </sql>
   <select id="selectByExample" parameterType="com.mislab.train.student.pojo.StudentExample" resultMap="BaseResultMap">
     select
@@ -86,15 +84,18 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+  <select id="loginCheck" resultMap="BaseResultMap">
+    select * from student where stu_id = #{stuId} and password = #{password}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
     <include refid="Base_Column_List" />
     from student
-    where stu_id = #{stuId,jdbcType=INTEGER}
+    where stu_id = #{stuId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from student
-    where stu_id = #{stuId,jdbcType=INTEGER}
+    where stu_id = #{stuId,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mislab.train.student.pojo.StudentExample">
     delete from student
@@ -103,12 +104,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.mislab.train.student.pojo.Student">
-    insert into student (stu_id, stu_name, stu_sex, 
-      stu_grade, major, aspir_id, 
-      phone, password)
-    values (#{stuId,jdbcType=INTEGER}, #{stuName,jdbcType=VARCHAR}, #{stuSex,jdbcType=CHAR}, 
-      #{stuGrade,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{aspirId,jdbcType=INTEGER}, 
-      #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    insert into student (stu_id, stu_name, stu_sex,
+      stu_grade, major, phone,
+      password)
+    values (#{stuId,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, #{stuSex,jdbcType=CHAR},
+      #{stuGrade,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mislab.train.student.pojo.Student">
     insert into student
@@ -128,9 +129,6 @@
       <if test="major != null">
         major,
       </if>
-      <if test="aspirId != null">
-        aspir_id,
-      </if>
       <if test="phone != null">
         phone,
       </if>
@@ -140,7 +138,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="stuId != null">
-        #{stuId,jdbcType=INTEGER},
+        #{stuId,jdbcType=VARCHAR},
       </if>
       <if test="stuName != null">
         #{stuName,jdbcType=VARCHAR},
@@ -153,9 +151,6 @@
       </if>
       <if test="major != null">
         #{major,jdbcType=VARCHAR},
-      </if>
-      <if test="aspirId != null">
-        #{aspirId,jdbcType=INTEGER},
       </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
@@ -175,7 +170,7 @@
     update student
     <set>
       <if test="record.stuId != null">
-        stu_id = #{record.stuId,jdbcType=INTEGER},
+        stu_id = #{record.stuId,jdbcType=VARCHAR},
       </if>
       <if test="record.stuName != null">
         stu_name = #{record.stuName,jdbcType=VARCHAR},
@@ -188,9 +183,6 @@
       </if>
       <if test="record.major != null">
         major = #{record.major,jdbcType=VARCHAR},
-      </if>
-      <if test="record.aspirId != null">
-        aspir_id = #{record.aspirId,jdbcType=INTEGER},
       </if>
       <if test="record.phone != null">
         phone = #{record.phone,jdbcType=VARCHAR},
@@ -205,14 +197,13 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update student
-    set stu_id = #{record.stuId,jdbcType=INTEGER},
-      stu_name = #{record.stuName,jdbcType=VARCHAR},
-      stu_sex = #{record.stuSex,jdbcType=CHAR},
-      stu_grade = #{record.stuGrade,jdbcType=VARCHAR},
-      major = #{record.major,jdbcType=VARCHAR},
-      aspir_id = #{record.aspirId,jdbcType=INTEGER},
-      phone = #{record.phone,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR}
+    set stu_id = #{record.stuId,jdbcType=VARCHAR},
+    stu_name = #{record.stuName,jdbcType=VARCHAR},
+    stu_sex = #{record.stuSex,jdbcType=CHAR},
+    stu_grade = #{record.stuGrade,jdbcType=VARCHAR},
+    major = #{record.major,jdbcType=VARCHAR},
+    phone = #{record.phone,jdbcType=VARCHAR},
+    password = #{record.password,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -232,9 +223,6 @@
       <if test="major != null">
         major = #{major,jdbcType=VARCHAR},
       </if>
-      <if test="aspirId != null">
-        aspir_id = #{aspirId,jdbcType=INTEGER},
-      </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
@@ -242,7 +230,7 @@
         password = #{password,jdbcType=VARCHAR},
       </if>
     </set>
-    where stu_id = #{stuId,jdbcType=INTEGER}
+    where stu_id = #{stuId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mislab.train.student.pojo.Student">
     update student
@@ -250,9 +238,8 @@
       stu_sex = #{stuSex,jdbcType=CHAR},
       stu_grade = #{stuGrade,jdbcType=VARCHAR},
       major = #{major,jdbcType=VARCHAR},
-      aspir_id = #{aspirId,jdbcType=INTEGER},
       phone = #{phone,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}
-    where stu_id = #{stuId,jdbcType=INTEGER}
+    where stu_id = #{stuId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -1,0 +1,39 @@
+
+T
+java:S2696Û"6Make the enclosing method "static" or remove this set.(©’®Á8¢Ó¶ĞŞ.
+S
+java:S2696İ"6Make the enclosing method "static" or remove this set.(Í08¢Ó¶ĞŞ.
+R
+java:S3740Ğ"/Provide the parametrized type for this generic.(‚ç‰ùÿÿÿÿ8è‡¦ĞŞ.
+c
+java:S1192}"FDefine a constant instead of duplicating this literal "stuId" 3 times.(÷¾¡ˆ8è‡¦ĞŞ.
+Q
+java:S3740j"/Provide the parametrized type for this generic.(„½àûÿÿÿÿ8è‡¦ĞŞ.
+R
+java:S3740"/Provide the parametrized type for this generic.(Ğµà“øÿÿÿÿ8è‡¦ĞŞ.
+o	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ‡ëÜùÿÿÿÿ8è‡¦ĞŞ.
+l
+java:S44889"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(òÓìÂıÿÿÿÿ8è‡¦ĞŞ.
+M
+java:S3740¯"/Provide the parametrized type for this generic.(¦¡¦ª8è‡¦ĞŞ.
+R
+java:S3740¡"/Provide the parametrized type for this generic.(úÙ”„ıÿÿÿÿ8è‡¦ĞŞ.
+L
+java:S3740¿"/Provide the parametrized type for this generic.(»²N8è‡¦ĞŞ.
+L
+java:S5411C"*Use the primitive boolean expression here.(©ß¾Šùÿÿÿÿ8è‡¦ĞŞ.
+L
+java:S3740{"/Provide the parametrized type for this generic.(”ªÚ¿8è‡¦ĞŞ.
+o	java:S100Z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÙŞ¸ÿÿÿÿÿ8è‡¦ĞŞ.
+l
+java:S4488X"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï½—ƒùÿÿÿÿ8è‡¦ĞŞ.
+t
+java:S3008/"RRename this field "SworkId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êİ×Æûÿÿÿÿ8¢Ó¶ĞŞ.
+}
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(‰íö¼8è‡¦ĞŞ.
+g
+java:S1226<"EIntroduce a new variable instead of reusing the parameter "fileinfo".(ÛÓúîúÿÿÿÿ8è‡¦ĞŞ.
+F
+java:S5411@"*Use the primitive boolean expression here.(—İ²8è‡¦ĞŞ.
+:
+java:S1116¢"Remove this empty statement.(ü£¡8è‡¦ĞŞ.

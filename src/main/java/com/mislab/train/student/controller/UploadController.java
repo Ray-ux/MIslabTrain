@@ -3,7 +3,6 @@ package com.mislab.train.student.controller;
 import com.mislab.train.student.service.FileManagerService;
 import com.mislab.train.student.utils.MultiFileInfo;
 import com.mislab.train.student.utils.MultiFileUploadUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +18,6 @@ import java.util.Map;
  * @Date 2020/11/13 20:35
  */
 @Controller
-@Slf4j
 public class UploadController {
 
 

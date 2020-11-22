@@ -1,0 +1,14 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(óËÚ
+n
+java:S1128"XRemove this unused import 'org.springframework.scheduling.support.SimpleTriggerContext'.(¦óƒß
+H
+java:S1068"+Remove this unused "stuName" private field.(‘Âë’8®™ÙĞŞ.
+N
+java:S1068",Remove this unused "stuGrade" private field.(¶†áûÿÿÿÿÿ8®™ÙĞŞ.
+G
+java:S1068"*Remove this unused "status" private field.(‚Ÿü8®™ÙĞŞ.
+I
+java:S1068"'Remove this unused "src" private field.(ãƒÙ—şÿÿÿÿ8®™ÙĞŞ.
+L
+java:S1068#"*Remove this unused "subday" private field.(ÅŸ¬óøÿÿÿÿ8®™ÙĞŞ.

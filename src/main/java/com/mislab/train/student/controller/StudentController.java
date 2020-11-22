@@ -56,8 +56,12 @@ public class StudentController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> MutiluploadFile(MultiFileInfo fileinfo, @RequestParam(required = false, value = "file") MultipartFile file, HttpServletResponse response) throws Exception {
-        fileinfo = new MultiFileInfo("123","qwe.zip","zip","123",20L);
+    public Map<String, String> MutiluploadFile(@RequestParam("name") String name,
+                                               @RequestParam("size") Long size,
+                                               @RequestParam("chunk") Integer chunk,
+                                               @RequestParam("chunks") Integer chunks,
+                                               @RequestParam(required = false, value = "file") MultipartFile file, HttpServletResponse response) throws Exception {
+        MultiFileInfo fileinfo = new MultiFileInfo(name,size,chunk,chunks);
         try {
             if (file != null && !file.isEmpty()) {
                 //切片上传
@@ -87,7 +91,7 @@ public class StudentController {
      */
     @RequestMapping(value = "/mergingChunks", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> MutilMergingChunksForFile(MultiFileInfo fileinfo, HttpServletResponse response) throws Exception {
+    public Map<String, String> MutilMergingChunksForFile(@RequestBody MultiFileInfo fileinfo, HttpServletResponse response) throws Exception {
         try {
             fileManagerService.MultiMergingChunks(fileinfo);
         } catch (Exception e) {
