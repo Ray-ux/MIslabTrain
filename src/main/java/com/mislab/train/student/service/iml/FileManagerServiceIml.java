@@ -103,7 +103,7 @@ public class FileManagerServiceIml implements FileManagerService {
     }
 
     @Override
-    public void MultiMergingChunks(MultiFileInfo fileinfo) throws Exception {
+    public void MultiMergingChunks(String fileDirName) throws Exception {
 //        String fileName = fileinfo.getName();
 //        String lastModifiedDate = fileinfo.getLastModifiedDate();
 //        long fileSize = fileinfo.getSize();
@@ -111,7 +111,7 @@ public class FileManagerServiceIml implements FileManagerService {
 //        String extName = fileName.substring(fileName.lastIndexOf("."));
 //        String fileNameSource = fileSize + "_" + fileName + id + lastModifiedDate;
 //        String fileDirName = tempWorkPath + "/" + SHA256Util.getSHA256String(fileNameSource) + extName + ".temp";
-        String fileDirName= fileinfo.getName();
+//        String fileDirName= fileinfo.getName();
         File tempFile = new File(fileDirName);
         if (tempFile.exists() && tempFile.isFile()) {
             checkBaseDir(saveFilePath);

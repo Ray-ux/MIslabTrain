@@ -18,7 +18,8 @@ public interface FileManagerService {
 
     void checkBaseDir(String baseDir);
 
-    void MultiMergingChunks(MultiFileInfo fileInfo) throws Exception;
+    void MultiMergingChunks(String fileName) throws Exception;
+//    void MultiMergingChunks(MultiFileInfo fileInfo) throws Exception;
 
 
 }
