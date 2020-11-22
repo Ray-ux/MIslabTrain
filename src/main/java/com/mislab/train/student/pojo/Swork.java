@@ -19,13 +19,14 @@ public class Swork {
 
     private Integer status;
 
-    public Swork(Integer sworkId, String stuId, Integer workId, Integer aspirId, String src, Date subday) {
+    public Swork(Integer sworkId, String stuId, Integer workId, Integer aspirId, String src, Date subday,Integer status) {
         this.sworkId = sworkId;
         this.stuId = stuId;
         this.workId = workId;
         this.aspirId = aspirId;
         this.src = src;
         this.subday = subday;
+        this.status = status;
     }
 
     public Swork() {

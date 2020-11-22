@@ -1,9 +1,9 @@
 
-
-java:S1149&"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ì­ŠÜúÿÿÿÿ8¿İÕ¨Ü.
+f
+java:S2147"DCombine this catch with the one at line 24, which has the same body.(ĞĞ¹óúÿÿÿÿ8ôÇÓ¨Ü.
 V
 java:S1118":Add a private constructor to hide the implicit public one.(²˜¶h8·ÙÌ¨Ü.
 V
 java:S4719"9Replace charset name argument with StandardCharsets.UTF_8(à§ è8ôÇÓ¨Ü.
-f
-java:S2147"DCombine this catch with the one at line 24, which has the same body.(ĞĞ¹óúÿÿÿÿ8ôÇÓ¨Ü.
+
+java:S1149&"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ì­ŠÜúÿÿÿÿ8¿İÕ¨Ü.

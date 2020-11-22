@@ -1,5 +1,6 @@
 package com.mislab.train.student.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import com.mislab.train.student.pojo.StuInfo;
 import com.mislab.train.student.pojo.Student;
@@ -33,6 +34,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/stu")
+@Slf4j
 public class StudentController {
 
     @Autowired
@@ -68,6 +70,7 @@ public class StudentController {
                                 @RequestParam(required = false, value = "file") MultipartFile file, HttpServletResponse response) throws Exception {
         MultiFileInfo fileinfo = new MultiFileInfo(name, size, chunk, chunks, allSize);
         try {
+            log.info("第"+chunk+"个分片的大小为："+file.getSize());
             if (file != null && !file.isEmpty()) {
                 //切片上传
                 if (MultiFileUploadUtils.checkMultiFilePremeter(fileinfo)) {
@@ -75,11 +78,16 @@ public class StudentController {
                     //单文件整体上传
                 } else if (MultiFileUploadUtils.checkSingFilePremeter(fileinfo)) {
                     fileManagerService.saveSingleFiletoDir(fileinfo, file);
+                    log.info(fileinfo.toString());
                 } else {
-                    throw new ErrorPremetersException("文件上传参数不合法");
+                    log.info("文件上传参数不合法");
+                    ErrorPremetersException e = new ErrorPremetersException("文件上传参数不合法");
+                    throw e;
                 }
             } else {
-                throw new ErrorPremetersException("文件上传附件字节流内容为空");
+                ErrorPremetersException e = new ErrorPremetersException("文件上传参数不合法");
+                log.info("第"+chunk+"分片流为空");
+                throw e;
             }
         } catch (Exception | ErrorPremetersException e) {
             e.printStackTrace();
@@ -106,8 +114,8 @@ public class StudentController {
             e.printStackTrace();
             return new ResponseEntity<>(Result.fail(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        String src = savedPath + fileName;
-        Swork swork = new Swork(sworkId, stuId, workId, aspirId, src, initDate());
+        String src ="123.57.31.120/api/swork/saved/" + fileName;
+        Swork swork = new Swork(sworkId, stuId, workId, aspirId, src, initDate(),0);
         sworkService.addSwork(swork);
         return new ResponseEntity<>(Result.success(swork,"添加成功！"), HttpStatus.OK);
     }
@@ -155,28 +163,28 @@ public class StudentController {
         return map;
     }
 
-    /**
-     * 简单多媒体上传
-     *
-     * @param file
-     * @param data
-     * @return
-     */
-    @RequestMapping("/upload")
-    public Map addSword(MultipartFile file, @RequestBody Map<String, Object> data) {
-        Map<String, Object> map;
-        StringBuffer realPath = new StringBuffer("");
-        String stringPath = realPath.append(file.getOriginalFilename()).toString();
-        Date currentTime = initDate();
-        sworkId = initSworkID();
-        Swork swork = new Swork(sworkId, (String) data.get("stuId"), (Integer) data.get("workId"), (Integer) data.get("aspirId"), stringPath, currentTime);
-        if (sworkService.addSwork(swork) != 0) {
-            map = Result.success(swork, "添加成功");
-            return map;
-        }
-        map = Result.fail("添加失败");
-        return map;
-    }
+//    /**
+//     * 简单多媒体上传
+//     *
+//     * @param file
+//     * @param data
+//     * @return
+//     */
+//    @RequestMapping("/upload")
+//    public Map addSword(MultipartFile file, @RequestBody Map<String, Object> data) {
+//        Map<String, Object> map;
+//        StringBuffer realPath = new StringBuffer("");
+//        String stringPath = realPath.append(file.getOriginalFilename()).toString();
+//        Date currentTime = initDate();
+//        sworkId = initSworkID();
+//        Swork swork = new Swork(sworkId, (String) data.get("stuId"), (Integer) data.get("workId"), (Integer) data.get("aspirId"), stringPath, currentTime);
+//        if (sworkService.addSwork(swork) != 0) {
+//            map = Result.success(swork, "添加成功");
+//            return map;
+//        }
+//        map = Result.fail("添加失败");
+//        return map;
+//    }
 
     /**
      * @param data data传入方向编号信息信息
@@ -237,6 +245,11 @@ public class StudentController {
     public Map findCourses(@RequestBody Map<String, Integer> data) {
         List<Aspiration> aspirations = aspirService.queryByTeaId(data.get("teaId"));
         return Result.success(aspirations, "查询成功");
+    }
+    @GetMapping("/aspirs")
+    public Map<String, Object> aspirs() {
+        List<Aspiration> aspirations = aspirService.queryAll();
+        return Result.success(aspirations);
     }
 
     /**

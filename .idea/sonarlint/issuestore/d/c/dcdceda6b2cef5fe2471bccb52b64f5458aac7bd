@@ -1,9 +1,7 @@
 
 b
-java:S11240"EReorder the modifiers to comply with the Java Language Specification.(²‹©8Óó†¨Ü.
-b	java:S112{"FDefine and throw a dedicated exception instead of using a generic one.(…¹Ğç8ÅšÊ¨Ü.
-a	java:S112U"FDefine and throw a dedicated exception instead of using a generic one.(ãá8ñù‚¨Ü.
->
-java:S1643="Use a StringBuilder instead.(Ş÷á¶üÿÿÿÿ8ñù‚¨Ü.
+java:S11246"EReorder the modifiers to comply with the Java Language Specification.(²‹©8Óó†¨Ü.
+c	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(…¹Ğç8ÅšÊ¨Ü.
+a	java:S112]"FDefine and throw a dedicated exception instead of using a generic one.(ãá8ñù‚¨Ü.
 9
-java:S1643q"Use a StringBuilder instead.(‡É¸‰8ÅšÊ¨Ü.
+java:S1643|"Use a StringBuilder instead.(‡É¸‰8˜×ùÖŞ.

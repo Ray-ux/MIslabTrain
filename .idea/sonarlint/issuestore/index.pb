@@ -213,3 +213,17 @@ Isrc/main/java/com/mislab/train/teacher/service/Impl/AspirServiceImpl.java,0\6\
 0src/main/java/com/mislab/train/VO/StuWorkVO.java,a\7\a71c325d08537e76842e17ed6823cb3f7e420262
 l
 <src/main/java/com/mislab/train/student/pojo/StuaspirKey.java,1\3\130df1a9f575220a96172fead36f74a3bc4248e0
+V
+&.idea/artifacts/train_war_exploded.xml,b\0\b01c1f89622ccfeb7cb742e8c7044d33f25c5071
+k
+;.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml,9\f\9f594e90f4f66752dc32a1fb95f99e1142cb6f27
+[
++src/main/resources/mapper/StudentMapper.xml,9\c\9c603ecc0725e042ba55e91fe5a99640108fbf46
+W
+'target/classes/mapper/StudentMapper.xml,f\4\f4fa7db1830aa84b23bf5cb28399cd7fb9971a0d
+N
+target/classes/application.yml,8\1\8177d69a8350a3085ca59b26a51aa2d336a55649
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+9
+	train.iml,4\a\4a68bab3b1c6a2f1f87d2379bbd1d709291bd803

@@ -86,7 +86,7 @@ public class FileManagerServiceIml implements FileManagerService {
                 filetempLock.unlock();//释放锁
 
             }
-            tempFile = new File(fileDirName);
+//            tempFile = new File(fileDirName);
             return tempFile;
 
         } else {
@@ -112,7 +112,7 @@ public class FileManagerServiceIml implements FileManagerService {
 //        String fileNameSource = fileSize + "_" + fileName + id + lastModifiedDate;
 //        String fileDirName = tempWorkPath + "/" + SHA256Util.getSHA256String(fileNameSource) + extName + ".temp";
 //        String fileDirName= fileinfo.getName();
-        File tempFile = new File(fileDirName);
+        File tempFile = new File(tempWorkPath+fileDirName);
         if (tempFile.exists() && tempFile.isFile()) {
             checkBaseDir(saveFilePath);
 //            String targetDirName = saveFilePath + "/" + SHA256Util.getSHA256String(fileNameSource);

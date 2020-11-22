@@ -1,5 +1,6 @@
 package com.mislab.train.student.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -9,6 +10,7 @@ import java.io.*;
  * @Date 2020/11/13 20:36
  * @Return 文件上传工具类
  */
+@Slf4j
 public class MultiFileUploadUtils {
     /**
      *  校验文件切片上传参数（字节流不能为空）
@@ -64,7 +66,8 @@ public class MultiFileUploadUtils {
      */
     public static void readySpaceFile(MultiFileInfo fileInfo,File tempFile) throws IOException {
         RandomAccessFile targetSpaceFile = new RandomAccessFile(tempFile,"rws");//语义
-        targetSpaceFile.setLength(fileInfo.getSize());
+        System.out.println("文件的长度为"+tempFile.length());
+        targetSpaceFile.setLength(fileInfo.getAllSize());
         System.out.println("创建文件:"+fileInfo.getName());
         targetSpaceFile.close();
     }
@@ -78,15 +81,18 @@ public class MultiFileUploadUtils {
      */
     public static void spaceFileWriter(MultipartFile file,File tempFile,MultiFileInfo fileInfo) throws Exception {
         long totalSpace = tempFile.getTotalSpace();//获取该路径下分区大小
+        log.info("当前文件的totalSpace"+totalSpace);
         RandomAccessFile raf = new RandomAccessFile(tempFile,"rw");//可以使用nio先把文件映射到内存
         BufferedInputStream sourceBuffer = new BufferedInputStream(file.getInputStream());
         Long startPointer = getFileWriterStartPointer(file,fileInfo);
+        log.info("起始位置是："+startPointer);
         raf.seek(startPointer);
         byte[] bt = new byte[1024];
         int n = 0;
         try{
-            while ((n=sourceBuffer.read()) != -1){
-                raf.write(bt);
+            while ((n=sourceBuffer.read(bt)) != -1){
+                raf.write(bt,0,n);
+                log.info("byte的length为："+n);
             }
         }catch (IOException e){
             e.printStackTrace();
